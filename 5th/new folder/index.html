@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5th Animation</title>
+    <style>
+        body {
+            background-color: black;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            background-color: darkblue;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            width: 650px;
+            height: 650px;
+            background-image: conic-gradient(transparent, transparent, transparent, cyan);
+            animation: animate 1s linear infinite;
+            -webkit-animation: animate 1s linear infinite;
+        }
+
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 650px;
+            height: 650px;
+            background-image: conic-gradient(transparent, transparent, transparent, red);
+            animation: animate 1s linear infinite;
+            -webkit-animation: animate 1s linear infinite;
+            animation-delay: 500ms;
+        }
+
+        .clock {
+            position: absolute;
+        }
+
+        .clock h3 {
+            display: inline;
+            font-size: 50px;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                -o-transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -o-transform: rotate(360deg);
+            }
+        }
+
+        .container span {
+            position: absolute;
+            inset: 5px;
+            border-radius: 16px;
+            -webkit-border-radius: 16px;
+            -moz-border-radius: 16px;
+            -ms-border-radius: 16px;
+            -o-border-radius: 16px;
+            background: black;
+            z-index: 1;
+        }
+    </style>
+
+</head>
+
+<body onload="updateClock(); setInterval(()=>{updateClock()}, 1000)">
+    <div class="container">
+        <span></span>
+        <div class="clock" style="z-index: 100;color: aliceblue;">
+            <h3 id="hours"></h3>
+            <h3 id="minutes"></h3>
+            <h3 id="seconds"></h3>
+
+            <div id="dayStatus"></div>
+            <div id="message" style="display: inline;"></div>
+            <p id="currentDay" style="color: blue"></p>
+        </div>
+    </div>
+    <script>
+
+        let hours = document.getElementById("hours");
+        let minutes = document.getElementById("minutes");
+        let seconds = document.getElementById("seconds");
+
+
+        function updateClock() {
+            let currentTime = new Date();
+            let currenthour = currentTime.getHours();
+            let currentMinute = currentTime.getMinutes();
+            let currentseconds = currentTime.getSeconds();
+            let currentDaystatus;
+            let currentMonth = currentTime.toLocaleString("en-us", { month: "long" });
+            let days = [
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+            ];
+            let message = document.getElementById("message");
+
+            if (currenthour >= 5 & currenthour <= 7) {
+                message.innerHTML = "Good Morning!";
+            } else if (currenthour == 12) {
+                message.innerHTML = "Good Afternoon";
+            } else if (currenthour >= 17 & currenthour <= 19) {
+                message.innerHTML = "Good Evening!";
+            } else if (currenthour >= 20 & currenthour <= 4) {
+                message.innerHTML = "Good Night!";
+            }
+            let currentDayName = days[currentTime.getDay()];
+
+            currentDaystatus = currenthour < 12 ? "AM" : "PM";
+            currenthour = currenthour > 12 ? currenthour - 12 : currenthour;
+            currenthour = currenthour == 0 ? 12 : currenthour;
+            currenthour = currenthour < 10 ? "0" + currenthour : currenthour;
+            currentMinute = currentMinute < 10 ? "0" + currentMinute : currentMinute;
+            currentseconds = currentseconds < 10 ? "0" + currentseconds : currentseconds;
+
+            // clock.innerHTML = currenthour + ":" + currentMinute + ":" + currentseconds;
+            hours.innerHTML = currenthour + ":";
+            minutes.innerHTML = currentMinute + ":";
+            seconds.innerHTML = currentseconds;
+
+            dayStatus.innerHTML = currentDaystatus;
+
+            currentDay.innerHTML =
+                currentDayName +
+                ", " +
+                currentMonth +
+                " " +
+                currentTime.getDate() +
+                ", " +
+                currentTime.getFullYear();
+        }
+
+    </script>
+</body>
+
+</html>

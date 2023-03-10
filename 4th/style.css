@@ -1,0 +1,96 @@
+body {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.container {
+  background-color: transparent;
+  width: 800PX;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform-style: preserve-3d;
+}
+.container div:nth-child(9){
+  width: 10px;
+  height: 600px;
+  background-color: blue;
+  position: relative;
+  top: 80px;
+z-index: -100;
+}
+.container div:not(:nth-child(9)){
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid white;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg) ;
+  -webkit-transform: rotateX(60deg) ;
+  -moz-transform: rotateX(60deg) ;
+  -ms-transform: rotateX(60deg) ;
+  -o-transform: rotateX(60deg) ;
+  animation: animate 1s linear  infinite alternate ;
+  -webkit-animation: animate 1s linear  infinite alternate ;
+}
+
+.container div:nth-child(8){
+  width: 80%;
+  height: 80%;
+  animation-delay: 2.4s;
+}
+.container div:nth-child(7){
+  width: 70%;
+  height: 70%;
+  animation-delay: 2.2s;
+}
+.container div:nth-child(6){
+  width: 60%;
+  height: 60%;
+  animation-delay: 2s;
+}
+.container div:nth-child(5){
+  width: 50%;
+  height: 50%;
+  animation-delay: 1.8s;
+}
+.container div:nth-child(4){
+  width: 40%;
+  animation-delay: 1.6s;
+  height: 40%;
+}
+.container div:nth-child(3){
+  width: 30%;
+  animation-delay: 1.4s;
+  height: 30%;
+}
+.container div:nth-child(2){
+  width: 20%;
+  animation-delay: 1.2s;
+  height: 20%;
+}
+.container div:nth-child(1){
+  width: 10%;
+  animation-delay: 1s;
+  height: 10%;
+}
+@keyframes animate {
+  0%{
+    transform: rotateX(70deg);
+    -webkit-transform: rotateX(70deg);
+    -moz-transform: rotateX(70deg);
+    -ms-transform: rotateX(70deg);
+    -o-transform: rotateX(70deg);
+}
+100%{
+  transform: rotateX(70deg) translateY(600px);
+  -webkit-transform: rotateX(70deg) translateY(600px);
+  -moz-transform: rotateX(70deg) translateY(600px);
+  -ms-transform: rotateX(70deg) translateY(600px);
+  -o-transform: rotateX(70deg) translateY(600px);
+}
+
+}

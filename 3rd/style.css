@@ -1,0 +1,72 @@
+body.anim3 {
+    background-color: #000E14;
+    margin: 0;
+}
+.anim3 .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.anim3 .button{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    width: 100px;
+    background: #E6f7FF;
+    padding: 0 2em;
+    color: #000E14;
+    transition: 1s;
+    font-size: 2rem;
+    text-decoration: none;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+}
+.anim3 .button::before{
+    content: "";
+    position: absolute;
+    background: linear-gradient(50deg,        #00aaff,        #000e14,        #ff5500,        #000e14,        #00aaff,        #000e14,        #ff5500,        #000e14        );
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -1;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    animation: anim3 40s linear infinite ;
+    -webkit-animation: anim3 40s linear infinite ;
+}
+.anim3 .button:hover,
+.anim3 .button:focus{
+    background-color: #000E14;
+    color: #66ccff;
+}
+.anim3 .button:hover::before,
+.anim3 .button:focus::before{
+    filter: blur(1.5rem);
+    -webkit-filter: blur(1.5rem);
+}
+@keyframes anim3 {
+    0%{
+        background-position: 0 0;
+    }
+    50%{
+        background-position: 400% 0;
+    }
+    100%{
+        background-position: 0 0;
+    }
+}

@@ -1,0 +1,38 @@
+body.anim1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: black;
+}
+.anim1 h2 {
+  position: relative;
+
+  font-size: 10vw;
+  font-family: sans-serif;
+  -webkit-text-stroke: 0.3vw #383d52;
+  text-transform: uppercase;
+}
+.anim1 h2::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  color: red;
+  -webkit-text-stroke: 0vw #03045e;
+  border-right: 2px solid #6fffe9;
+  overflow: hidden;
+  animation: anim1 4s linear infinite;
+  -webkit-animation: anim1 4s linear infinite;
+}
+
+@keyframes anim1 {
+  0% {
+    width: 0;
+  }
+  70% {
+    width: 100%;
+  }
+}

@@ -1,0 +1,75 @@
+body {
+  position: relative;
+  min-height: 100vh;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+.container span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(calc(36deg * var(--i)));
+  -webkit-transform: rotate(calc(36deg * var(--i)));
+  -moz-transform: rotate(calc(36deg * var(--i)));
+  -ms-transform: rotate(calc(36deg * var(--i)));
+  -o-transform: rotate(calc(36deg * var(--i)));
+}
+.container span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 4px solid cyan;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  box-sizing: border-box;
+  box-shadow: 0 0 20px cyan, -30px 30px 1px cyan, 30px -30px 1px cyan,    -30px -30px 1px cyan, 30px 30px 1px cyan,    0 0 20px cyan, -30px 30px 20px cyan, 30px -30px 20px cyan,    -30px -30px 20px cyan, 30px 30px 20px cyan;
+  animation: animate 4s linear infinite;
+  -webkit-animation: animate 4s linear infinite;
+  transform-origin: 20px;
+  animation-delay: calc(-0.25s*var(--i));
+  transition: 2s;
+  -webkit-transition:;
+  -moz-transition:;
+  -ms-transition:;
+  -o-transition:;
+}
+.container:hover span::before{
+    box-shadow: 0 0 20px cyan, -200px 200px 1px cyan, 200px -200px 1px cyan,    -200px -200px 1px cyan, 200px 200px 1px cyan,    0 0 20px cyan, -200px 200px 20px cyan, 200px -200px 20px cyan,    -200px -200px 20px cyan, 200px 200px 20px cyan;
+    transform-origin: 100px;
+} 
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+        filter: hue-rotate(0deg);
+        -webkit-filter: hue-rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+}
+100%{
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+    -webkit-filter: hue-rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+}   
+}

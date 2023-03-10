@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>5th Animation</title>
+</head>
+<body onload="updateClock(); setInterval(()=>{updateClock()}, 1000)">
+    <div class="container">
+        <span></span>
+        <div class="clock" style="z-index: 100;color: aliceblue;">
+        <h3 id="hours"></h3>
+        <h3 id="minutes"></h3>
+        <h3 id="seconds"></h3>
+    
+        <div id="dayStatus"></div>
+        <div id="message" style="display: inline;"></div>
+        <p id="currentDay" style="color: blue"></p></div>
+    </div>
+<script  src="index.js"></script>
+</body>
+
+</html>
